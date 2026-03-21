@@ -1,0 +1,446 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解锁AI潜能，打造专属智能生产力 | AI咨询服务</title>
+  <meta name="description" content="从0到1搭建专属AI工作流，结合Harness Engineering方法论，让AI真正服务于个人业务与成长。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              900: '#0f172a',
+              800: '#1e293b',
+              700: '#334155',
+              600: '#475569',
+            },
+            accent: {
+              500: '#3b82f6',
+              600: '#2563eb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="{% static 'hero/assets/index-C42gCmGb.css' %}">
+  <style>
+    body { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
+    .bg-white { background-color: #1e293b !important; }
+    .bg-slate-50 { background-color: #0f172a !important; }
+    .text-slate-800 { color: #f1f5f9 !important; }
+    .text-slate-700 { color: #e2e8f0 !important; }
+    .text-slate-600 { color: #cbd5e1 !important; }
+    .border-slate-100 { border-color: #334155 !important; }
+    .hover\:bg-slate-50:hover { background-color: #334155 !important; }
+    .shadow-slate-200\/50 { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3) !important; }
+    .bg-primary-50 { background-color: rgba(99,102,241,0.1) !important; }
+    .bg-accent-50 { background-color: rgba(139,92,246,0.1) !important; }
+    .text-slate-500 { color: #94a3b8 !important; }
+    .bg-red-100 { background-color: rgba(239,68,68,0.2) !important; }
+    .text-red-500 { color: #f87171 !important; }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-slate-800 antialiased">
+  {% include 'partials/navbar.html' %}
+  
+  <div class="max-w-6xl mx-auto px-8 pt-20">
+    
+    <!-- Hero Section -->
+    <section class="py-20 animate-section">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent mb-6 leading-tight">
+          解锁AI潜能，打造专属智能生产力
+        </h1>
+        <h2 class="text-2xl text-slate-600 font-medium">
+          AI大模型：能力跃升，成本骤降
+        </h2>
+      </div>
+      
+      <div class="max-w-4xl mx-auto mb-12">
+        <p class="text-lg text-slate-700 leading-relaxed text-center">
+          当下，AI大模型正迎来两大颠覆性趋势：能力呈指数级爆发，成本却断崖式下降。从2020年GPT-3的1750亿参数量，到2026年GPT-5预计突破5万亿（增幅近30倍），AI的理解与生成能力实现质的飞跃；而每百万Token输入成本从最初60美元降至如今5美元，且未来两年将持续低位。这意味着，超强AI能力正以普惠化的成本触达每一个人，一个人人可用AI、人人能用好AI的时代，已然到来。
+
+        </p>
+      </div>
+      
+      <div class="flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+          <img 
+            src="{% static 'hero/images/ai_image_1.jpg' %}" 
+            alt="AI能力跃升示意图"
+            class="relative rounded-2xl shadow-xl max-w-full h-auto hover:scale-[1.02] transition-transform duration-300"
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- Opportunity Intro -->
+    <section class="py-16 animate-section">
+      <div class="flex items-center gap-12">
+        <div class="flex-1">
+          <div class="text-lg text-slate-600 leading-relaxed">
+            当AI浪潮席卷而来，很多人只看到被替代的焦虑，却忽略了其背后重塑个人价值的巨大机遇。AI从不是为取代人类而生，而是打破了长期以来的能力壁垒，让个体价值拥有了前所未有的爆发可能——这是继互联网之后，又一次改写个人发展轨迹的时代红利。主动拥抱者，终将在未来找到更多元、更广阔的成长空间。<br>
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+            <img 
+              src="{% static 'hero/images/ai_image_2.jpg' %}" 
+              alt="个人价值机遇"
+              class="relative rounded-xl shadow-lg max-w-full h-auto hover:scale-[1.02] transition-transform duration-300"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- Opportunities (3 Features) -->
+    <section class="py-16 animate-section">
+      <h2 class="text-2xl font-bold text-slate-800 mb-10 text-center">这份机遇，体现在三个核心维度：</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+            ✓
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">能力放大</h3>
+          <p class="text-slate-600 leading-relaxed">AI不再只是工具，而是撬动个人优势的杠杆。它打破技术门槛，让普通人也能完成专业级工作，将创意、判断力等核心价值转化为实实在在的成果</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+            ✓
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">知识平权</h3>
+          <p class="text-slate-600 leading-relaxed">优质教育、高端咨询资源不再是少数人的特权，无论身处何地，都能低成本获取并利用这些宝贵资源</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+            ✓
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">边界拓展</h3>
+          <p class="text-slate-600 leading-relaxed">过去需要团队、海量资源才能落地的科研项目、商业尝试，如今仅凭个人想法+AI辅助就能启动</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- Pain Points -->
+    <section class="py-16 animate-section">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">使用AI的核心痛点：为什么我们常常用不好AI？</h2>
+      <p class="text-lg text-slate-600 mb-8">但现实中，很多人用AI时都有过这样的体验：初期惊叹于它的强大，深入使用后却频频踩坑——不仅浪费Token，更消耗宝贵的时间与精力：
+</p>
+      
+      <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 mb-8">
+        <div class="grid md:grid-cols-2 gap-4">
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">✕</div>
+            <div>
+              <h4 class="font-semibold text-slate-800">需求错位</h4>
+              <p class="text-slate-600 text-sm mt-1">输出结果与预期南辕北辙</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">✕</div>
+            <div>
+              <h4 class="font-semibold text-slate-800">内容浅薄</h4>
+              <p class="text-slate-600 text-sm mt-1">满是正确的废话，缺乏深度</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">✕</div>
+            <div>
+              <h4 class="font-semibold text-slate-800">信息幻觉</h4>
+              <p class="text-slate-600 text-sm mt-1">引用不存在/过时的信息源</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">✕</div>
+            <div>
+              <h4 class="font-semibold text-slate-800">信息遗漏</h4>
+              <p class="text-slate-600 text-sm mt-1">无法完整识别输入数据，关键信息被忽略</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center font-bold">✕</div>
+            <div>
+              <h4 class="font-semibold text-slate-800">其他问题</h4>
+              <p class="text-slate-600 text-sm mt-1">如图像输出效果糟糕……</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="rounded-2xl p-8 border-l-4 border-primary-500 mb-8" style="background-color: #1e293b;">
+        <p class="text-slate-700 leading-relaxed">于是有人说用AI就是赌概率，但问题的根源从不是AI本身，而是缺乏AI思维——这并非天生能力，而是需要刻意练习的核心能力。而用好AI的终极秘诀，早已被OpenAI、Anthropic等头部机构验证：搭建科学的工作流，远比熟练操作工具更重要。<br></p>
+      </div>
+      
+      <div class="flex justify-center">
+        <img 
+          src="{% static 'hero/images/ai_image_5.jpg' %}" 
+          alt="痛点示意图"
+          class="rounded-xl shadow-lg"
+        >
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- AI Tiers -->
+    <section class="py-16 animate-section">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">从对话工具到自主系统：AI的四种核心形态</h2>
+      <p class="text-lg text-slate-600 mb-10">要搭建高效工作流，首先要读懂AI的核心形态。从实用性×复杂度双维度，可将AI分为四大层级：</p>
+      
+      <div class="grid md:grid-cols-4 gap-6 mb-10">
+        
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-500 to-accent-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 h-full group-hover:bg-transparent group-hover:text-white transition-all duration-300">
+            <div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent mb-4 group-hover:text-white">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-white">基础层</h3>
+            <p class="text-sm text-primary-500 mb-3 group-hover:text-primary-100">Chatbox（纯对话模型）</p>
+            <p class="text-slate-600 text-sm group-hover:text-white/90">开箱即用，实用性最高，功能相对简单</p>
+          </div>
+        </div>
+        
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-500 to-accent-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 h-full group-hover:bg-transparent group-hover:text-white transition-all duration-300">
+            <div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent mb-4 group-hover:text-white">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-white">进阶层</h3>
+            <p class="text-sm text-primary-500 mb-3 group-hover:text-primary-100">Chatbox+MCP</p>
+            <p class="text-slate-600 text-sm group-hover:text-white/90">可调用外部工具，解决实时数据需求，实用性与复杂度双提升</p>
+          </div>
+        </div>
+        
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-500 to-accent-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 h-full group-hover:bg-transparent group-hover:text-white transition-all duration-300">
+            <div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent mb-4 group-hover:text-white">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-white">专业层</h3>
+            <p class="text-sm text-primary-500 mb-3 group-hover:text-primary-100">Agent（智能体）</p>
+            <p class="text-slate-600 text-sm group-hover:text-white/90">能自主规划、执行复杂任务，实用性极强，需一定技术门槛</p>
+          </div>
+        </div>
+        
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-500 to-accent-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 h-full group-hover:bg-transparent group-hover:text-white transition-all duration-300">
+            <div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent mb-4 group-hover:text-white">
+              4
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-white">未来层</h3>
+            <p class="text-sm text-primary-500 mb-3 group-hover:text-primary-100">Autonomous System（如Openclaw、龙虾）</p>
+            <p class="text-slate-600 text-sm group-hover:text-white/90">实现无人值守自主运行，是终极方向，复杂度也最高</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="flex justify-center">
+        <img 
+          src="{% static 'hero/images/ai_image_6.jpg' %}" 
+          alt="AI形态示意图"
+          class="rounded-xl shadow-lg"
+        >
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- Harness Engineering -->
+    <section class="py-16 animate-section">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">从选择AI形态到驾驭工程：构建稳定高效的AI工作流</h2>
+      <div class="text-lg text-slate-600 mb-8 leading-relaxed">选对AI形态后，核心是设计贴合自身的工作流。工作流的本质，是基于对自身业务的深度认知，搭建输入→输出的完整闭环——而你的专业能力，直接决定了工作流能否真正解决问题。<br><br>如今AI圈爆火的Harness Engineering（驾驭工程），正是面向Agent-First时代的软件工程方法论。其核心定义是：设计一套环境与机制，使AI Agent能在可控边界内持续自主工作，并能被自动验证、快速纠错与持续改进。OpenAI更是明确其核心理念：Humans steer, agents execute（人类掌舵，代理执行），将其定为大规模AI工作负载的核心范式。<br><br>Harness Engineering的出现，标志着AI应用从拼提示词转向系统工程化——通过为AI Agent定规则、建流程、做校验，把零散的AI工具整合为稳定、可复用的自动化工作流，彻底解决AI输出不可靠、任务易烂尾等痛点，让AI从玩具变成真正的生产力工具。<br><br>业界已形成共识：AI开发的瓶颈不在模型，而在基建与流程；必须分离思考与执行；上下文利用率控制在40%左右效率最优；工程师角色也从写代码转向设计AI运行环境、管理Agent工作。<br></div>
+      
+      <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 mb-8">
+        <h3 class="text-xl font-bold text-slate-800 mb-6">未来的AI竞争，不再是单一模型的比拼，而是Model × Harness的协同较量：</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-primary-50 rounded-xl p-6">
+            <div class="text-3xl font-bold text-primary-600 mb-2">Model</div>
+            <p class="text-slate-700">Model（模型）：AI的内核，决定基础能力上限（如GPT-5、Claude 4）</p>
+          </div>
+          <div class="bg-accent-50 rounded-xl p-6">
+            <div class="text-3xl font-bold text-accent-600 mb-2">Harness</div>
+            <p class="text-slate-700">Harness（驾驭能力）：AI的方向盘，决定基础能力的落地效率</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-slate-700 leading-relaxed space-y-4 mb-8">
+        即便用同一模型，掌握Harness Engineering的人，能让AI输出价值提升10倍以上——这正是普通人与AI高手的核心差距。<br><br>用好AI的关键，始终绕不开三个核心：输入质量、流程框架、输出形式。垃圾输入，垃圾输出（GIGO）的定律从未失效：杂乱的指令，再强的AI也难出价值；而清晰的需求、合理的流程、明确的输出标准，才能让AI的能力发挥到极致。<br><br>归根结底，AI时代的核心竞争力，依然是使用者的底层思维——而Harness Engineering，正是构建这种思维的科学框架。没有放之四海而皆准的最优框架，适合自己、能落地的，就是最好的。而高度个性化的AI工作流，恰恰印证了核心逻辑：AI越强大，越能放大个体的独特价值。<br><br>
+      </div>
+      
+      <div class="flex justify-center">
+        <img 
+          src="{% static 'hero/images/ai_image_7.jpg' %}" 
+          alt="Harness Engineering"
+          class="rounded-xl shadow-lg"
+        >
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- Service -->
+    <section class="py-16 animate-section">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">告别AI迷茫：从0到1，搭建你的专属AI工作流</h2>
+      <div class="text-lg text-slate-600 mb-10 leading-relaxed">
+        想要把Harness Engineering的理念落地，让AI真正服务于个人业务与成长，核心是理清Input（输入）、Process（流程）、Output（输出）三大核心——这既需要你对自身业务的Know-how，也需要对AI能力边界的清晰认知。多数人用不好AI，并非缺业务能力，而是不会把隐性经验拆解为AI可执行的步骤；更关键的是，普通人难以快速掌握Harness Engineering的复杂框架。<br><br>与其迷茫观望，不如从0到1打造属于自己的AI应用——这正是我们的核心价值：以Input-Process-Output为核心，结合Harness Engineering四大机制，为你提供从需求拆解到Skill落地的全流程定制服务，帮你从AI工具使用者升级为AI流程设计者。<br><br>
+      </div>
+      
+      <h3 class="text-xl font-bold text-slate-800 mb-6">四大服务步骤，解锁专属AI生产力</h3>
+      
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full bg-white rounded-2xl shadow-lg shadow-slate-200/50 overflow-hidden">
+          <thead>
+            <tr class="bg-gradient-to-r from-primary-500 to-accent-500 text-white">
+              <th class="px-6 py-4 text-left font-semibold">服务步骤</th>
+              <th class="px-6 py-4 text-left font-semibold">核心内容</th>
+              <th class="px-6 py-4 text-left font-semibold">你的核心收获</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-5">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center font-bold text-sm">
+                    1
+                  </span>
+                  <span class="font-semibold text-slate-800">业务Know-how拆解</span>
+                </div>
+              </td>
+              <td class="px-6 py-5 text-slate-600">深度访谈梳理核心业务、痛点与目标，把隐性经验转化为结构化内容</td>
+              <td class="px-6 py-5">
+                <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(99,102,241,0.3); color: #ffffff;">
+                  模糊需求→AI可理解的结构化需求
+                </span>
+              </td>
+            </tr>
+            
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-5">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center font-bold text-sm">
+                    2
+                  </span>
+                  <span class="font-semibold text-slate-800">AI能力边界匹配</span>
+                </div>
+              </td>
+              <td class="px-6 py-5 text-slate-600">结合OpenAI、Anthropic最新研究，明确AI可做/人类掌控的边界</td>
+              <td class="px-6 py-5">
+                <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(99,102,241,0.3); color: #ffffff;">
+                  避开过度依赖AI的误区，守住核心竞争力
+                </span>
+              </td>
+            </tr>
+            
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-5">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center font-bold text-sm">
+                    3
+                  </span>
+                  <span class="font-semibold text-slate-800">专属Agent Skill搭建</span>
+                </div>
+              </td>
+              <td class="px-6 py-5 text-slate-600">按Anthropic官方标准，封装指令、脚本、资源与验证规则，构建可复用Skill</td>
+              <td class="px-6 py-5">
+                <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(99,102,241,0.3); color: #ffffff;">
+                  拥有个人专属AI能力包，一键激活专业能力
+                </span>
+              </td>
+            </tr>
+            
+            <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-5">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 text-white flex items-center justify-center font-bold text-sm">
+                    4
+                  </span>
+                  <span class="font-semibold text-slate-800">全流程优化与陪伴</span>
+                </div>
+              </td>
+              <td class="px-6 py-5 text-slate-600">上线后持续监控输出、迭代Skill版本，提供长期技术支持</td>
+              <td class="px-6 py-5">
+                <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(99,102,241,0.3); color: #ffffff;">
+                  Skill随业务成长迭代，长期创造价值
+                </span>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="rounded-2xl p-8" style="background-color: #1e293b;">
+        <p class="text-slate-700 leading-relaxed">无论你是金融行业研究者（需量化投研、行业分析自动化Skill）、职场人（需文案生成、数据整理Skill）、创业者（需营销内容、客户管理Skill），还是自由职业者（需接单、交付Skill），我们都能定制贴合需求的Agent Skill，让AI打破能力壁垒，放大你的个人价值。<br></p>
+      </div>
+    </section>
+
+    <div class="divider h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-8"></div>
+
+    <!-- CTA -->
+    <section class="py-20 animate-section">
+      <div class="bg-gradient-to-r from-primary-600 to-accent-500 rounded-3xl p-12 text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">总结：拥抱AI，抓住属于你的时代红利</h2>
+        <div class="max-w-3xl mx-auto text-lg leading-relaxed opacity-95 space-y-4">
+          时代的进步从不等待犹豫者，AI的发展也不会止步——未来或许会有更高效的落地方法、更强大的模型，但最好的时机永远是现在。<br><br>AI不是洪水猛兽，而是时代赋予每个人的生产力工具；Harness Engineering教会你如何驾驭AI，Agent Skill让你轻松落地AI。与其在焦虑中观望，不如主动行动：让我们以专业陪伴，将你的业务经验转化为可复用的AI能力，真正驾驭AI的力量，在这场继互联网之后最大的个体成长浪潮中，找到属于自己的独特价值。<br><br>
+        </div>
+        <div class="mt-10">
+          <a href="{% url 'core:about' %}" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            了解更多
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  
+  <footer class="py-12 text-center text-slate-500 text-sm">
+    <p>&copy; 2026 AI Consulting. All rights reserved.</p>
+    <p class="mt-4">
+      <a href="{% url 'core:about' %}" class="text-slate-400 hover:text-accent-500 transition-colors">About</a>
+      <span class="mx-2">|</span>
+      <a href="{% url 'blog:list' %}" class="text-slate-400 hover:text-accent-500 transition-colors">Blog</a>
+    </p>
+  </footer>
+
+  <script src="{% static 'hero/main.js' %}"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

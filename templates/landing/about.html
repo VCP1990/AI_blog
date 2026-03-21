@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load markdown_extras %}
+
+{% block title %}About - {{ site_settings.site_name|default:'AI Blog' }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Markdown 内容样式 */
+    .markdown-body {
+        color: #e6edf3;
+        line-height: 1.8;
+    }
+    
+    /* 头像发光边框动画 */
+    @keyframes pulse-glow {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.05);
+        }
+    }
+    
+    .animate-pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .markdown-body h1, .markdown-body h2, .markdown-body h3, 
+    .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+        color: #f1f5f9;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+    }
+    .markdown-body h1 { font-size: 1.875rem; }
+    .markdown-body h2 { font-size: 1.5rem; }
+    .markdown-body h3 { font-size: 1.25rem; }
+    .markdown-body h4 { font-size: 1.125rem; }
+    .markdown-body p { margin-bottom: 1rem; }
+    .markdown-body ul, .markdown-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+    .markdown-body li { margin-bottom: 0.25rem; }
+    .markdown-body a { color: #3b82f6; text-decoration: underline; }
+    .markdown-body a:hover { color: #60a5fa; }
+    .markdown-body blockquote { 
+        border-left: 4px solid #3b82f6; 
+        padding: 0.5rem 1rem; 
+        margin: 1rem 0;
+        color: #94a3b8;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .markdown-body img { 
+        border-radius: 0.5rem; 
+        max-width: 100%; 
+        margin: 1rem auto;
+        display: block;
+    }
+    .markdown-body hr { border-color: #334155; margin: 2rem 0; }
+    .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+    }
+    .markdown-body th, .markdown-body td {
+        border: 1px solid #334155;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+    }
+    .markdown-body th {
+        background-color: #1e293b;
+        font-weight: 600;
+    }
+    .markdown-body code {
+        background-color: #334155;
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .markdown-body pre {
+        background-color: #161b22;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+        border: 1px solid #30363d;
+    }
+    .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="pt-24 pb-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <!-- 头像发光效果 -->
+            <div class="relative inline-block mb-6">
+                <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-accent-500 to-primary-500 blur-xl animate-pulse-glow"></div>
+                {% if settings.author_avatar %}
+                <div class="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-accent-500/50">
+                    <img src="{{ settings.author_avatar.url }}" alt="{{ settings.author_name }}" class="w-full h-full object-cover">
+                </div>
+                {% else %}
+                <div class="relative w-32 h-32 rounded-full bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center ring-4 ring-accent-500/50">
+                    <i data-lucide="user" class="w-16 h-16 text-white"></i>
+                </div>
+                {% endif %}
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">{{ settings.author_name|default:'Your Name' }}</h1>
+            <p class="text-xl text-accent-500 mb-6">{{ settings.author_title|default:'Full Stack Developer' }}</p>
+        </div>
+        
+        <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700 mb-12">
+            <h2 class="text-2xl font-semibold text-white mb-4 flex items-center">
+                <i data-lucide="user-circle" class="w-6 h-6 mr-3 text-accent-500"></i>
+                About Me
+            </h2>
+            <div class="text-slate-300 leading-relaxed markdown-body">
+                {% if settings.author_bio %}
+                    {{ settings.author_bio|article_link|markdown }}
+                {% else %}
+                    <p>Welcome to my blog! I'm a developer passionate about technology, focusing on web development and AI.</p>
+                    <p class="mt-4">Here I share my technical insights, project experiences, and thoughts on the industry. Hope you find it helpful!</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% if settings.services_content %}
+        <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700 mb-12">
+            <h2 class="text-2xl font-semibold text-white mb-6 flex items-center">
+                <i data-lucide="briefcase" class="w-6 h-6 mr-3 text-accent-500"></i>
+                My Services
+            </h2>
+            <div class="markdown-body">
+                {{ settings.services_content|article_link|markdown }}
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700">
+            <h2 class="text-2xl font-semibold text-white mb-6 flex items-center">
+                <i data-lucide="mail" class="w-6 h-6 mr-3 text-accent-500"></i>
+                Contact Me
+            </h2>
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+                {% if settings.contact_email %}
+                <a href="mailto:{{ settings.contact_email }}" 
+                   class="flex items-center p-4 bg-dark-700 rounded-xl hover:bg-dark-600 transition-colors group">
+                    <div class="w-10 h-10 bg-accent-500/10 rounded-lg flex items-center justify-center mr-4">
+                        <i data-lucide="mail" class="w-5 h-5 text-accent-500"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400">Email</div>
+                        <div class="text-white group-hover:text-accent-500 transition-colors">{{ settings.contact_email }}</div>
+                    </div>
+                </a>
+                {% endif %}
+                
+                {% if settings.contact_github %}
+                <a href="{{ settings.contact_github }}" target="_blank"
+                   class="flex items-center p-4 bg-dark-700 rounded-xl hover:bg-dark-600 transition-colors group">
+                    <div class="w-10 h-10 bg-accent-500/10 rounded-lg flex items-center justify-center mr-4">
+                        <i data-lucide="github" class="w-5 h-5 text-accent-500"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400">GitHub</div>
+                        <div class="lookup-contact-url">{{ settings.contact_github|cut:'https://github.com/' }}</div>
+                    </div>
+                </a>
+                {% endif %}
+                
+                {% if settings.contact_linkedin %}
+                <a href="{{ settings.contact_linkedin }}" target="_blank"
+                   class="flex items-center p-4 bg-dark-700 rounded-xl hover:bg-dark-600 transition-colors group">
+                    <div class="w-10 h-10 bg-accent-500/10 rounded-lg flex items-center justify-center mr-4">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-accent-500"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400">LinkedIn</div>
+                        <div class="text-white group-hover:text-accent-500 transition-colors">View Profile</div>
+                    </div>
+                </a>
+                {% endif %}
+                
+                {% if settings.contact_twitter %}
+                <a href="{{ settings.contact_twitter }}" target="_blank"
+                   class="flex items-center p-4 bg-dark-700 rounded-xl hover:bg-dark-600 transition-colors group">
+                    <div class="w-10 h-10 bg-accent-500/10 rounded-lg flex items-center justify-center mr-4">
+                        <i data-lucide="twitter" class="w-5 h-5 text-accent-500"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400">Twitter/X</div>
+                        <div class="text-white group-hover:text-accent-500 transition-colors">Follow Me</div>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,79 @@
+# English translations for AI Blog
+msgid ""
+msgstr ""
+
+#: navbar.html
+msgid "Home"
+msgstr "Home"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "About"
+msgstr "About"
+
+#: blog/list.html
+msgid "Read More"
+msgstr "Read More"
+
+msgid "Published on"
+msgstr "Published on"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "of"
+msgstr "of"
+
+msgid "No articles found."
+msgstr "No articles found."
+
+#: blog/detail.html
+msgid "Related Articles"
+msgstr "Related Articles"
+
+msgid "Back to List"
+msgstr "Back to List"
+
+msgid "Views"
+msgstr "Views"
+
+msgid "Author"
+msgstr "Author"
+
+#: partials/sidebar.html
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Popular Articles"
+msgstr "Popular Articles"
+
+msgid "Search"
+msgstr "Search"
+
+#: blog/search.html
+msgid "Search Results"
+msgstr "Search Results"
+
+msgid "Search for articles..."
+msgstr "Search for articles..."
+
+msgid "results found for"
+msgstr "results found for"
+
+msgid "No results found for"
+msgstr "No results found for"
+
+#: footer.html
+msgid "All rights reserved."
+msgstr "All rights reserved."
+
+#: common
+msgid "English"
+msgstr "English"
+
+msgid "Chinese"
+msgstr "Chinese"

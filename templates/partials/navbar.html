@@ -1,0 +1,75 @@
+{% load i18n %}
+{% load i18n %}
+<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="{% url 'core:home' %}" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-slate-100">{{ site_settings.site_name|default:'AI Blog' }}</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="{% url 'core:home' %}" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                <a href="{% url 'blog:list' %}" class="text-slate-300 hover:text-white transition-colors">Blog</a>
+                <a href="{% url 'core:about' %}" class="text-slate-300 hover:text-white transition-colors">About</a>
+                
+                <!-- Language Switcher -->
+                <div class="relative" id="lang-switcher">
+                    <button type="button" id="lang-btn" class="flex items-center space-x-1 text-slate-300 hover:text-white transition-colors">
+                        <span>{% get_current_language as LANGUAGE_CODE %}{% if LANGUAGE_CODE == 'zh-hans' %}中文{% else %}English{% endif %}</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-dark-800 border border-dark-700 rounded-lg shadow-lg">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}">
+                            <button type="submit" name="language" value="en" class="block w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-dark-700 hover:text-white {% if LANGUAGE_CODE == 'en' %}bg-dark-700{% endif %}">English</button>
+                            <button type="submit" name="language" value="zh-hans" class="block w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-dark-700 hover:text-white {% if LANGUAGE_CODE == 'zh-hans' %}bg-dark-700{% endif %}">中文</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-700">
+        <div class="px-4 py-3 space-y-2">
+            <a href="{% url 'core:home' %}" class="block py-2 text-slate-300 hover:text-white">Home</a>
+            <a href="{% url 'blog:list' %}" class="block py-2 text-slate-300 hover:text-white">Blog</a>
+            <a href="{% url 'core:about' %}" class="block py-2 text-slate-300 hover:text-white">About</a>
+            <div class="border-t border-dark-700 pt-2 mt-2">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.path }}">
+                    <button type="submit" name="language" value="en" class="block w-full text-left py-2 text-sm text-slate-300 hover:text-white">English</button>
+                    <button type="submit" name="language" value="zh-hans" class="block w-full text-left py-2 text-sm text-slate-300 hover:text-white">中文</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+
+document.getElementById('lang-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('lang-dropdown').classList.toggle('hidden');
+});
+
+document.addEventListener('click', function(e) {
+    if (!document.getElementById('lang-switcher').contains(e.target)) {
+        document.getElementById('lang-dropdown').classList.add('hidden');
+    }
+});
+</script>

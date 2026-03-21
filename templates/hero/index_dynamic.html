@@ -1,0 +1,279 @@
+{% load static i18n %}
+{% load markdown_extras %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ hero.title }}</title>
+  <meta name="description" content="{{ hero.subtitle }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              900: '#0f172a',
+              800: '#1e293b',
+              700: '#334155',
+              600: '#475569',
+            },
+            accent: {
+              500: '#3b82f6',
+              600: '#2563eb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="{% static 'hero/assets/index-C42gCmGb.css' %}">
+  <style>
+    body { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
+    .bg-white { background-color: #1e293b !important; }
+    .bg-slate-50 { background-color: #0f172a !important; }
+    .text-slate-800 { color: #f1f5f9 !important; }
+    .text-slate-700 { color: #e2e8f0 !important; }
+    .text-slate-600 { color: #cbd5e1 !important; }
+    .border-slate-100 { border-color: #334155 !important; }
+    .hover\:bg-slate-50:hover { background-color: #334155 !important; }
+    .shadow-slate-200\/50 { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3) !important; }
+    .bg-primary-50 { background-color: rgba(99,102,241,0.1) !important; }
+    .bg-accent-50 { background-color: rgba(139,92,246,0.1) !important; }
+    .text-slate-500 { color: #94a3b8 !important; }
+    .prose h1, .prose h2, .prose h3, .prose h4 { color: #f1f5f9; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose p { color: #cbd5e1; margin-bottom: 1rem; line-height: 1.75; }
+    .prose ul, .prose ol { margin-left: 1.5rem; margin-bottom: 1rem; color: #cbd5e1; }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose a { color: #3b82f6; text-decoration: underline; }
+    .prose blockquote { border-left: 4px solid #3b82f6; padding-left: 1rem; color: #94a3b8; margin: 1rem 0; }
+    .prose code { background-color: #334155; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875rem; color: #f1f5f9; }
+    .prose pre { background-color: #1e293b; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; border: 1px solid #334155; }
+    .prose pre code { background-color: transparent; padding: 0; }
+    .prose strong { color: #f1f5f9; }
+    .prose em { color: #cbd5e1; }
+    .divider { 
+      height: 1px; 
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #3b82f6, transparent); 
+      margin: 2rem 0; 
+      opacity: 0.5;
+    }
+    
+    /* 标题微光动画 */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .title-shimmer {
+      background: linear-gradient(90deg, #f1f5f9 0%, #93c5fd 25%, #c4b5fd 50%, #93c5fd 75%, #f1f5f9 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 8s linear infinite;
+    }
+    
+    /* CTA按钮脉冲动画 */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      50% { box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.3); }
+    }
+    .btn-pulse {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    /* 滚动淡入动画 */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-slate-800 antialiased">
+  {% include 'partials/navbar.html' %}
+  
+  <div class="max-w-6xl mx-auto px-8 pt-20">
+    
+    <!-- Section 1: Hero Header -->
+    <section class="py-20 fade-in-section relative overflow-hidden rounded-3xl">
+      {% if hero.background_image %}
+      <div class="absolute inset-0">
+        <img src="{{ hero.background_image.url }}" alt="" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-900/50 to-dark-900/90"></div>
+      </div>
+      {% endif %}
+      
+      <div class="relative z-10 text-center mb-12 px-8">
+        <h1 class="text-5xl font-bold title-shimmer mb-6 leading-tight">
+          {{ hero.title }}
+        </h1>
+        {% if hero.subtitle %}
+        <h2 class="text-3xl text-slate-300 font-medium mb-8">
+          {{ hero.subtitle }}
+        </h2>
+        {% endif %}
+      </div>
+      
+      {% if hero.welcome_text %}
+      <div class="relative z-10 max-w-4xl mx-auto mb-12 px-8">
+        <div class="prose text-2xl text-slate-200 leading-relaxed text-center">
+          {{ hero.welcome_text|markdown }}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+
+    <!-- Section 2: Content Blocks -->
+    {% for block in content_blocks %}
+    <div class="divider"></div>
+    
+    <section class="py-16 fade-in-section">
+      {% if block.title %}
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">{{ block.title }}</h2>
+      {% endif %}
+      
+      {% if block.image_position == 'center' %}
+      <div class="mb-8">
+        <div class="prose text-lg text-slate-600 leading-relaxed">
+          {{ block.content|markdown }}
+        </div>
+      </div>
+      {% if block.image %}
+      <div class="flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+          <img 
+            src="{{ block.image.url }}" 
+            alt="{{ block.title }}"
+            class="relative rounded-2xl shadow-xl max-w-full h-auto hover:scale-[1.02] transition-transform duration-300"
+          >
+        </div>
+      </div>
+      {% endif %}
+      
+      {% elif block.image_position == 'left' %}
+      <div class="flex items-center gap-12 flex-wrap md:flex-nowrap">
+        {% if block.image %}
+        <div class="flex-1 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+            <img 
+              src="{{ block.image.url }}" 
+              alt="{{ block.title }}"
+              class="relative rounded-xl shadow-lg max-w-full h-auto hover:scale-[1.02] transition-transform duration-300"
+            >
+          </div>
+        </div>
+        {% endif %}
+        <div class="flex-1">
+          <div class="prose text-lg text-slate-600 leading-relaxed">
+            {{ block.content|markdown }}
+          </div>
+        </div>
+      </div>
+      
+      {% elif block.image_position == 'right' %}
+      <div class="flex items-center gap-12 flex-wrap md:flex-nowrap">
+        <div class="flex-1">
+          <div class="prose text-lg text-slate-600 leading-relaxed">
+            {{ block.content|markdown }}
+          </div>
+        </div>
+        {% if block.image %}
+        <div class="flex-1 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+            <img 
+              src="{{ block.image.url }}" 
+              alt="{{ block.title }}"
+              class="relative rounded-xl shadow-lg max-w-full h-auto hover:scale-[1.02] transition-transform duration-300"
+            >
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+      {% else %}
+      <div class="prose text-lg text-slate-600 leading-relaxed">
+        {{ block.content|markdown }}
+      </div>
+      {% endif %}
+    </section>
+    {% empty %}
+    <div class="divider"></div>
+    <section class="py-16 text-center text-slate-500">
+      <p>暂无内容，请在后台添加内容块。</p>
+    </section>
+    {% endfor %}
+
+    <!-- Section 3: CTA -->
+    {% if cta %}
+    <div class="divider"></div>
+    
+    <section class="py-20 fade-in-section">
+      <div class="relative overflow-hidden rounded-3xl p-12 text-white text-center">
+        {% if cta.background_image %}
+        <div class="absolute inset-0">
+          <img src="{{ cta.background_image.url }}" alt="" class="w-full h-full object-cover opacity-30">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent-500"></div>
+        </div>
+        {% else %}
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent-500"></div>
+        {% endif %}
+        
+        <div class="relative z-10">
+          <div class="prose max-w-3xl mx-auto text-lg leading-relaxed opacity-95">
+            {{ cta.content|markdown }}
+          </div>
+          <div class="mt-10">
+            <a href="{{ cta.get_link }}" class="inline-flex items-center gap-2 bg-dark-800 text-white px-8 py-4 rounded-full font-semibold hover:bg-dark-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 btn-pulse">
+              <span>{{ cta.button_text }}</span>
+              <span>✨</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+  </div>
+  
+  <footer class="py-12 text-center text-slate-500 text-sm">
+    <p>{{ site_settings.footer_text|default:"© 2026 AI Blog. All rights reserved." }}</p>
+    <p class="mt-4">
+      <a href="{% url 'core:about' %}" class="text-slate-400 hover:text-accent-500 transition-colors">About</a>
+      <span class="mx-2">|</span>
+      <a href="{% url 'blog:list' %}" class="text-slate-400 hover:text-accent-500 transition-colors">Blog</a>
+    </p>
+  </footer>
+
+  <script src="{% static 'hero/main.js' %}"></script>
+  <script>
+    lucide.createIcons();
+    
+    // 滚动淡入动画
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.fade-in-section').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

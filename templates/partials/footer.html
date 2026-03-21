@@ -1,0 +1,42 @@
+<footer class="bg-dark-800 border-t border-dark-700 py-8 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="w-6 h-6 bg-accent-500 rounded flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+                </div>
+                <span class="text-slate-400">{{ site_settings.footer_text|default:'© 2026 AI Blog. All rights reserved.' }}</span>
+            </div>
+            
+            <div class="flex items-center space-x-6">
+                {% if site_settings.contact_github %}
+                <a href="{{ site_settings.contact_github }}" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                {% endif %}
+                {% if site_settings.contact_linkedin %}
+                <a href="{{ site_settings.contact_linkedin }}" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                {% endif %}
+                {% if site_settings.contact_twitter %}
+                <a href="{{ site_settings.contact_twitter }}" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+                {% endif %}
+                {% if site_settings.contact_email %}
+                <a href="mailto:{{ site_settings.contact_email }}" class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+                {% endif %}
+                <a href="{% url 'core:rss' %}" class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="rss" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="mt-6 pt-6 border-t border-dark-700 text-center text-slate-500 text-sm">
+            Powered by Django & Tailwind CSS
+        </div>
+    </div>
+</footer>

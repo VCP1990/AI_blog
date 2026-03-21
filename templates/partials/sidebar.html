@@ -1,0 +1,75 @@
+<aside class="space-y-6">
+    <div class="bg-dark-800 rounded-xl p-6 border border-dark-700">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <i data-lucide="folder" class="w-5 h-5 mr-2 text-accent-500"></i>
+            Categories
+        </h3>
+        <ul class="space-y-2">
+            {% for cat in categories %}
+            <li>
+                <a href="{% url 'blog:category' cat.slug %}" 
+                   class="flex justify-between items-center text-slate-300 hover:text-accent-500 transition-colors py-1">
+                    <span>{{ cat.name }}</span>
+                    <span class="text-slate-500 text-sm">({{ cat.get_article_count }})</span>
+                </a>
+            </li>
+            {% empty %}
+            <li class="text-slate-500">No categories</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="bg-dark-800 rounded-xl p-6 border border-dark-700">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <i data-lucide="hash" class="w-5 h-5 mr-2 text-accent-500"></i>
+            Tags
+        </h3>
+        <div class="flex flex-wrap gap-2">
+            {% for tag in tags %}
+            <a href="{% url 'blog:tag' tag.slug %}" 
+               class="px-3 py-1 rounded-full text-sm transition-colors"
+               style="background-color: {{ tag.color }}20; color: {{ tag.color }}; border: 1px solid {{ tag.color }}40;">
+                {{ tag.name }}
+            </a>
+            {% empty %}
+            <span class="text-slate-500">No tags</span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="bg-dark-800 rounded-xl p-6 border border-dark-700">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <i data-lucide="flame" class="w-5 h-5 mr-2 text-accent-500"></i>
+            Popular Articles
+        </h3>
+        <ul class="space-y-3">
+            {% for article in popular_articles %}
+            <li>
+                <a href="{% url 'blog:article_detail' article.slug %}" 
+                   class="block text-slate-300 hover:text-accent-500 transition-colors">
+                    <div class="text-sm line-clamp-2">{{ article.title }}</div>
+                    <div class="text-xs text-slate-500 mt-1 flex items-center">
+                        <i data-lucide="eye" class="w-3 h-3 mr-1"></i>
+                        {{ article.views }} views
+                    </div>
+                </a>
+            </li>
+            {% empty %}
+            <li class="text-slate-500">No articles</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="bg-dark-800 rounded-xl p-6 border border-dark-700">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <i data-lucide="rss" class="w-5 h-5 mr-2 text-accent-500"></i>
+            Subscribe
+        </h3>
+        <p class="text-slate-400 text-sm mb-4">Subscribe to RSS for latest articles</p>
+        <a href="{% url 'core:rss' %}"
+           class="inline-flex items-center px-4 py-2 bg-accent-500 hover:bg-accent-600 text-white rounded-lg transition-colors text-sm">
+            <i data-lucide="rss" class="w-4 h-4 mr-2"></i>
+            Subscribe RSS
+        </a>
+    </div>
+</aside>

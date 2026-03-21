@@ -1,0 +1,95 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site_settings.site_description|default:'AI Blog - Exploring the possibilities of AI and technology' }}">
+    <title>{% block title %}{{ site_settings.site_name|default:'AI Blog' }}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                        },
+                        accent: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .prose pre { background-color: #1e293b; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; }
+        .prose code { background-color: #334155; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875rem; }
+        .prose pre code { background-color: transparent; padding: 0; }
+        .prose h1, .prose h2, .prose h3, .prose h4 { color: #f1f5f9; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; }
+        .prose ul, .prose ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .prose li { margin-bottom: 0.25rem; }
+        .prose a { color: #3b82f6; text-decoration: underline; }
+        .prose blockquote { border-left: 4px solid #3b82f6; padding-left: 1rem; color: #94a3b8; }
+        .prose img { border-radius: 0.5rem; max-width: 100%; }
+    .prose hr { border-color: #334155; margin: 2rem 0; }
+        
+        /* 滚动淡入动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in-section.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-dark-900 text-slate-200 min-h-screen flex flex-col">
+    {% include 'partials/navbar.html' %}
+    
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+    
+    {% include 'partials/footer.html' %}
+    
+    <script>
+        lucide.createIcons();
+        
+        // 滚动淡入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

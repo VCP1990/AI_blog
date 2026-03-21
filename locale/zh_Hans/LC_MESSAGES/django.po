@@ -1,0 +1,81 @@
+# Simplified Chinese translations for AI Blog
+msgid ""
+msgstr ""
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: navbar.html
+msgid "Home"
+msgstr "首页"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "About"
+msgstr "关于"
+
+#: blog/list.html
+msgid "Read More"
+msgstr "阅读更多"
+
+msgid "Published on"
+msgstr "发布于"
+
+msgid "Page"
+msgstr "第"
+
+msgid "of"
+msgstr "共"
+
+msgid "No articles found."
+msgstr "暂无文章"
+
+#: blog/detail.html
+msgid "Related Articles"
+msgstr "相关文章"
+
+msgid "Back to List"
+msgstr "返回列表"
+
+msgid "Views"
+msgstr "阅读量"
+
+msgid "Author"
+msgstr "作者"
+
+#: partials/sidebar.html
+msgid "Categories"
+msgstr "分类"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "Popular Articles"
+msgstr "热门文章"
+
+msgid "Search"
+msgstr "搜索"
+
+#: blog/search.html
+msgid "Search Results"
+msgstr "搜索结果"
+
+msgid "Search for articles..."
+msgstr "搜索文章..."
+
+msgid "results found for"
+msgstr "个结果"
+
+msgid "No results found for"
+msgstr "未找到结果"
+
+#: footer.html
+msgid "All rights reserved."
+msgstr "版权所有"
+
+#: common
+msgid "English"
+msgstr "English"
+
+msgid "Chinese"
+msgstr "中文"
