@@ -49,6 +49,9 @@ staticfiles/
 # Deployment logs
 DEPLOY_LOG.md
 
+# Maintenance mode flag (runtime only)
+maintenance/.maintenance
+
 # OS
 .DS_Store
 Thumbs.db
