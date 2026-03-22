@@ -48,6 +48,9 @@ staticfiles/
 
 # Deployment logs
 deploy_log/
+
+# Development logs
+dev_log/
 DEPLOY_LOG.md
 
 # Maintenance mode flag (runtime only)
