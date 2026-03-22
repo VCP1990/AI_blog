@@ -53,6 +53,9 @@ deploy_log/
 dev_log/
 DEPLOY_LOG.md
 
+# Internal documentation
+DEV_DEPLOY_GUIDE.md
+
 # Maintenance mode flag (runtime only)
 maintenance/.maintenance
 
