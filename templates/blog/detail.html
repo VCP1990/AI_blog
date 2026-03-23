@@ -140,7 +140,7 @@
                     <div class="flex flex-wrap items-center gap-4 text-slate-400 text-sm">
                         <span class="flex items-center">
                             <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
-                            {{ article.created_at|date:"M d, Y" }}
+                            {{ article.published_at|date:"M d, Y" }}
                         </span>
                         <span class="flex items-center">
                             <i data-lucide="eye" class="w-4 h-4 mr-2"></i>
@@ -191,7 +191,7 @@
                         <a href="{% url 'blog:article_detail' related.slug %}" 
                            class="bg-dark-800 rounded-xl p-4 border border-dark-700 hover:border-accent-500/50 transition-all group">
                             <h3 class="text-white font-medium group-hover:text-accent-500 transition-colors line-clamp-2">{{ related.title }}</h3>
-                            <p class="text-slate-500 text-sm mt-2">{{ related.created_at|date:"M d, Y" }}</p>
+                            <p class="text-slate-500 text-sm mt-2">{{ related.published_at|date:"M d, Y" }}</p>
                         </a>
                         {% endfor %}
                     </div>

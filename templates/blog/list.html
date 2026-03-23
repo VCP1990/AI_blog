@@ -109,7 +109,7 @@
                                     <a href="{% url 'blog:category' article.category.slug %}" 
                                        class="text-accent-500 text-sm font-medium hover:underline">{{ article.category.name }}</a>
                                     {% endif %}
-                                    <span class="text-slate-500 text-sm">{{ article.created_at|date:"M d, Y" }}</span>
+                                    <span class="text-slate-500 text-sm">{{ article.published_at|date:"M d, Y" }}</span>
                                     <span class="flex items-center text-slate-500 text-sm">
                                         <i data-lucide="eye" class="w-4 h-4 mr-1"></i>
                                         {{ article.views }} views

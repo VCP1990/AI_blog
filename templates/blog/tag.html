@@ -36,7 +36,7 @@
                                     <a href="{% url 'blog:category' article.category.slug %}" 
                                        class="text-accent-500 text-sm font-medium hover:underline">{{ article.category.name }}</a>
                                     {% endif %}
-                                    <span class="text-slate-500 text-sm">{{ article.created_at|date:"M d, Y" }}</span>
+                                    <span class="text-slate-500 text-sm">{{ article.published_at|date:"M d, Y" }}</span>
                                 </div>
                                 
                                 <h2 class="text-xl font-semibold text-white mb-3 group-hover:text-accent-500 transition-colors">
